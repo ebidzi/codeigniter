@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Set the base path — change if CodeIgniter is in a subfolder
+    RewriteBase /
+
+    # Allow direct access to these folders/files
+    RewriteCond %{REQUEST_URI} !^(index\.php|assets|images|js|css|libs|uploads|icons|favicon\.png|fonts) [NC]
+
+    # If the requested resource doesn't exist as a file...
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # ...and doesn't exist as a directory...
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Send the request to index.php with the URI
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Block direct access to application and system folders for security
+RedirectMatch 403 ^/(application|system|\.env)
