@@ -2,7 +2,7 @@
     RewriteEngine On
 
     # Set the base path — change if CodeIgniter is in a subfolder
-    RewriteBase /
+     RewriteBase /codeigniter/
 
     # Allow direct access to these folders/files
     RewriteCond %{REQUEST_URI} !^(index\.php|assets|images|js|css|libs|uploads|icons|favicon\.png|fonts) [NC]

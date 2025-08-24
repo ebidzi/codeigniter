@@ -10,4 +10,9 @@ class Home_model extends CI_Model {
         $query = $this->db->get('test_db');
         return $query->result_array();
     }
+
+    public function get_singledata($id){
+        $query = $this->db->get_where('test_db', array('id' => $id));
+        return $query->row_array();
+    }
 }
